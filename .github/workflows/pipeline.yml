@@ -1,0 +1,19 @@
+name: Pipeline CI/CD Docker
+
+on:
+  push:
+    branches:
+      - main
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+
+    steps:
+    - name: Clonar repositorio
+      uses: actions/checkout@v3
+
+    - name: Construir imagen Docker
+      run: docker build -t nginx-ci .
+
+    
